@@ -1,0 +1,26 @@
+{
+  "name": "snapbots-platform",
+  "version": "0.1.0",
+  "private": true,
+  "description": "SNAPBOTS web platform: public site, customer portal, admin dashboard, Firebase backend.",
+  "workspaces": [
+    "apps/web",
+    "functions"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "typecheck": "npm run typecheck -w apps/web",
+    "lint": "npm run lint -w apps/web",
+    "test": "npm run test -w apps/web && npm run test -w functions",
+    "test:web": "npm run test -w apps/web",
+    "test:functions": "npm run test -w functions",
+    "test:rules": "firebase emulators:exec --only firestore,storage --project snapbots-demo \"npm run test:rules -w functions\"",
+    "functions:build": "npm run build -w functions",
+    "bootstrap-admin": "npm run bootstrap-admin -w functions --",
+    "emulators": "firebase emulators:start --only auth,firestore,storage,functions,hosting"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
